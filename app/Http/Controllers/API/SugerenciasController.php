@@ -29,15 +29,15 @@ class SugerenciasController extends Controller
             $weather = $this->getWeather($request->city, $request->lat, $request->lon);
             $temp = $weather['main']['temp'];
 
-            switch ( $temp ) {
+            switch ($temp) {
 
                 case $temp > 30:
                     $type = 'party';
                     break;
-                case $temp <= 30 && $temp >=15:
+                case $temp <= 30 && $temp >= 15:
                     $type = 'pop';
                     break;
-                case $temp <= 14 && $temp >=10:
+                case $temp <= 14 && $temp >= 10:
                     $type = 'rock';
                     break;
                 case $temp < 10:
@@ -61,7 +61,7 @@ class SugerenciasController extends Controller
             $songs = [];
 
             foreach ($tracks['items'] as $track) {
-                $songs[] = " Track: ".$track['track']['name'];
+                $songs[] = " Track: " . $track['track']['name'];
                 BusquedaCancion::create([
                     'busqueda_id' => $busqueda->id,
                     'track_id' => $track['track']['id'],
@@ -71,12 +71,12 @@ class SugerenciasController extends Controller
             }
 
             DB::commit();
-            return response()->json([ 'tracks' => $songs ], 200);
+            return response()->json(['temperature' => $temp, 'tracks' => $songs], 200);
 
-        }catch (\Exception $e) {
+        } catch (\Exception $e) {
 
             DB::rollBack();
-            return response()->json([ 'message' => $e->getMessage() ], 500);
+            return response()->json(['message' => $e->getMessage()], 500);
 
         }
 
@@ -90,7 +90,7 @@ class SugerenciasController extends Controller
 
             $response = Http::get("http://api.openweathermap.org/data/2.5/weather?q=$city&appid=$api_id&units=metric");
 
-        }elseif(!is_null($lat) && !is_null($lon)) {
+        } elseif (!is_null($lat) && !is_null($lon)) {
 
             $response = Http::get("http://api.openweathermap.org/data/2.5/weather?lat=$lat&lon=$lon&appid=$api_id&units=metric");
 
@@ -98,11 +98,11 @@ class SugerenciasController extends Controller
 
         $response = $response->json();
 
-        if ( isset($response['main'])) {
+        if (isset($response['main'])) {
 
             return $response;
 
-        }else {
+        } else {
 
             throw new \Exception('Ocurrio un error al obtener el clima.');
 
@@ -114,14 +114,14 @@ class SugerenciasController extends Controller
     {
 
         $spotify_id = env('SPOTIFY_USER_ID');
-        $spotify_secret = env( 'SPOTIFY_SECRET_ID' );
+        $spotify_secret = env('SPOTIFY_SECRET_ID');
 
         $response = Http::withBasicAuth($spotify_id, $spotify_secret)
-            ->asForm()->post("https://accounts.spotify.com/api/token", [ 'grant_type' => 'client_credentials']);
+            ->asForm()->post("https://accounts.spotify.com/api/token", ['grant_type' => 'client_credentials']);
 
         $response = $response->json();
 
-        if ( isset($response['access_token'])) {
+        if (isset($response['access_token'])) {
 
             return $response['access_token'];
 
@@ -142,11 +142,11 @@ class SugerenciasController extends Controller
 
         $playlist = $playlist->json();
 
-        if ( isset($playlist['playlists'])) {
+        if (isset($playlist['playlists'])) {
 
             return $playlist['playlists']['items'][0]['id'];
 
-        }else {
+        } else {
 
             throw new \Exception('Ocurrio un error al obtener el playlist.');
 
@@ -164,7 +164,7 @@ class SugerenciasController extends Controller
 
         $tracks = $tracks->json();
 
-        if ( isset($tracks['items'])) {
+        if (isset($tracks['items'])) {
 
             return $tracks;
 

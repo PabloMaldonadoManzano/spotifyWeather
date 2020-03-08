@@ -26,9 +26,9 @@ class WeatherRequest extends FormRequest
     {
         return [
 
-           "city" =>  [
-               'role_id' => Rule::requiredIf($this->query('lat') == null && $this->query('lon') == null),
-           ],
+            "city" => [
+                'role_id' => Rule::requiredIf($this->query('lat') == null && $this->query('lon') == null),
+            ],
             "lon" => [
                 'role_id' => Rule::requiredIf($this->query('city') == null),
             ],
@@ -49,8 +49,8 @@ class WeatherRequest extends FormRequest
     {
         return [
             'city.required' => 'El parametro city es requerido.',
-            'lat.required'  => 'El parameto lat es requerido.',
-            'lon.required'  => 'El parameto lon es requerido.',
+            'lat.required' => 'El parameto lat es requerido.',
+            'lon.required' => 'El parameto lon es requerido.',
         ];
     }
 }
