@@ -11,8 +11,73 @@ use Illuminate\Support\Facades\Http;
 use App\Http\Requests\WeatherRequest;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * @OA\Info(title="API Recomendaciones", version="1.0")
+ *
+ * @OA\Server(url="http://weather.test/")
+ */
+
 class SugerenciasController extends Controller
 {
+    /**
+     * @OA\Get(
+     *     path="/api/sugerencia",
+     *     summary="Mostrar lista de canciones recomendadas.",
+     *     @OA\Parameter(
+     *          name="city",
+     *          description="Nombre de la ciudad",
+     *          required=false,
+     *          in="query",
+     *          @OA\Schema(
+     *              type="string"
+     *          )
+     *      ),
+     *      @OA\Parameter(
+     *          name="lat",
+     *          description="Latitud geográfica",
+     *          required=false,
+     *          in="query",
+     *          @OA\Schema(
+     *              type="string"
+     *          )
+     *      ),
+     *     @OA\Parameter(
+     *          name="lon",
+     *          description="Longitud geográfica",
+     *          required=false,
+     *          in="query",
+     *          @OA\Schema(
+     *              type="string"
+     *          )
+     *      ),
+     *     @OA\Parameter(
+     *          name="X-Requested-With",
+     *          description="XMLHttpRequest",
+     *          example="XMLHttpRequest",
+     *          required=true,
+     *          in="header",
+     *          @OA\Schema(
+     *              type="string"
+     *          )
+     *      ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Mostrar lista de canciones recomendadas."
+     *     ),
+     *     @OA\Response(
+     *         response="500",
+     *         description="Ha ocurrido un error : Ocurrio un error al obtener el clima.",
+     *         description="Ha ocurrido un error : Ocurrio un error al obtener el token de spotify.",
+     *         description="Ha ocurrido un error : Ocurrio un error al obtener el playlist.",
+     *         description="Ha ocurrido un error : Ocurrio un error al obtener los tracks."
+     *     ),
+     *     @OA\Response(
+     *         response="default",
+     *         description="Ha ocurrido un error : message."
+     *     )
+     *
+     * )
+     */
 
     public function getSugestion(WeatherRequest $request)
     {
@@ -61,7 +126,7 @@ class SugerenciasController extends Controller
             $songs = [];
 
             foreach ($tracks['items'] as $track) {
-                $songs[] = " Track: " . $track['track']['name'];
+                $songs[] = " Track: " . $track['track']['name'] . " Artist: " .$track['track']['artists'][0]['name'];
                 BusquedaCancion::create([
                     'busqueda_id' => $busqueda->id,
                     'track_id' => $track['track']['id'],
@@ -76,7 +141,7 @@ class SugerenciasController extends Controller
         } catch (\Exception $e) {
 
             DB::rollBack();
-            return response()->json(['message' => $e->getMessage()], 500);
+            return response()->json(['message' => "Ha ocurrido un error : ".$e->getMessage()], 500);
 
         }
 

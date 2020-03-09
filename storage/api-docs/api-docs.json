@@ -1,0 +1,70 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API Recomendaciones",
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "http://weather.test/"
+        }
+    ],
+    "paths": {
+        "/api/sugerencia": {
+            "get": {
+                "summary": "Mostrar lista de canciones recomendadas.",
+                "operationId": "App\\Http\\Controllers\\API\\SugerenciasController::getSugestion",
+                "parameters": [
+                    {
+                        "name": "city",
+                        "in": "query",
+                        "description": "Nombre de la ciudad",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "lat",
+                        "in": "query",
+                        "description": "Latitud geográfica",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "lon",
+                        "in": "query",
+                        "description": "Longitud geográfica",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "X-Requested-With",
+                        "in": "header",
+                        "description": "XMLHttpRequest",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "XMLHttpRequest"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Mostrar lista de canciones recomendadas."
+                    },
+                    "500": {
+                        "description": "Ha ocurrido un error : Ocurrio un error al obtener los tracks."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error : message."
+                    }
+                }
+            }
+        }
+    }
+}
