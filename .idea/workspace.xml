@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f16c5c7e-25ef-4ec7-8f18-b42ea6376da5" name="Default Changelist" comment="Agregar documentación con formado .md">
+    <list default="true" id="f16c5c7e-25ef-4ec7-8f18-b42ea6376da5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/SugerenciasLatLonTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/SugerenciasLatLonTest.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,8 +43,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tests/Feature/SugerenciasLatLonTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+            <state relative-caret-position="255">
+              <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -119,9 +120,9 @@
         <option value="$PROJECT_DIR$/config/app.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/resources/documentation/recomendaciones.md" />
-        <option value="$PROJECT_DIR$/tests/Feature/SugerenciasLatLonTest.php" />
         <option value="$PROJECT_DIR$/tests/Feature/SugerenciasCityTest.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/API/SugerenciasController.php" />
+        <option value="$PROJECT_DIR$/tests/Feature/SugerenciasLatLonTest.php" />
       </list>
     </option>
   </component>
@@ -361,7 +362,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1583467240675</updated>
-      <workItem from="1583467252030" duration="44948000" />
+      <workItem from="1583467252030" duration="45689000" />
     </task>
     <task id="LOCAL-00001" summary="Dar estilo al código">
       <created>1583708919072</created>
@@ -384,11 +385,18 @@
       <option name="project" value="LOCAL" />
       <updated>1583724184632</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Agregar Test automáticos">
+      <created>1583727285457</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1583727285458</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44948000" />
+    <option name="totallyTimeSpent" value="45689000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -432,7 +440,8 @@
     <MESSAGE value="Dar estilo al código" />
     <MESSAGE value="Agregar documentación con openApi 3.0" />
     <MESSAGE value="Agregar documentación con formado .md" />
-    <option name="LAST_COMMIT_MESSAGE" value="Agregar documentación con formado .md" />
+    <MESSAGE value="Agregar Test automáticos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Agregar Test automáticos" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.styleci.yml">
@@ -624,8 +633,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/Feature/SugerenciasLatLonTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+        <state relative-caret-position="255">
+          <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
         </state>
       </provider>
     </entry>

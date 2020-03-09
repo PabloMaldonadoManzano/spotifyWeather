@@ -15,6 +15,7 @@ class SugerenciasLatLonTest extends TestCase
      *
      * @return void
      */
+
     public function testExample()
     {
         $response = $this->withHeaders([
